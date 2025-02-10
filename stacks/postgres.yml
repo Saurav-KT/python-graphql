@@ -1,0 +1,32 @@
+name: local-environment
+
+networks:
+  default:
+    name: local-network
+
+services:
+  postgres:
+    container_name: graphql-postgres
+    image: postgres:13.9-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: graphql_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+#      - ./docker/postgres/data:/var/lib/postgresql/data
+#      - ./docker/postgres/postgresql.conf:/etc/postgresql/postgresql.conf
+#    command:
+#      - "postgres"
+#      - "-c"
+#      - "config_file=/etc/postgresql/postgresql.conf"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
