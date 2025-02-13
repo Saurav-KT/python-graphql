@@ -10,12 +10,6 @@ from app.db.models import User
 from sqlmodel import select
 from app.utils import generate_token, verify_password
 
-
-
-
-
-
-
 class LoginUser(Mutation):
     class Arguments:
         email= String(required= True)
