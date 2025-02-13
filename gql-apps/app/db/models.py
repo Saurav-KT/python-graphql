@@ -28,6 +28,7 @@ class User(BaseModel, table=True):
     id: int = Field(primary_key=True)
     username: str = Field(nullable=False, title="user name")
     email: str = Field(nullable=False, title="user email")
+    password_hash: str= Field(nullable=False, title="user password")
     role: str = Field(nullable=False, title="user role")
     applications: Optional["JobApplication"] = Relationship(back_populates="user")
 

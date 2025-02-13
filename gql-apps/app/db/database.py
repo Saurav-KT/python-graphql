@@ -6,6 +6,7 @@ from app.db.models import Employer, Job, User, JobApplication
 from app.settings.config import DATABASE_URL
 from sqlmodel.ext.asyncio.session import AsyncSession
 from app.db.data import employers_data, jobs_data, users_data, application_data
+from app.utils import hash_password
 
 engine = create_async_engine(DATABASE_URL, echo=True)
 
@@ -36,6 +37,8 @@ async def init_db():
             session.add(Job(**job))
 
         for user in users_data:
+            user['password_hash']= hash_password(user['password'])
+            del user['password']
             session.add(User(**user))
 
         for app in application_data:
