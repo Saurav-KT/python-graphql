@@ -1,3 +1,5 @@
+Install python and pycharm or VS code (Ignore if already installed)
+Create the virtual environment and install the dependencies
 To execute the gql apps
 **uvicorn app.main:app --reload**
 
