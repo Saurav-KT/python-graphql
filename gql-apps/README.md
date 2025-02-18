@@ -11,5 +11,5 @@ http://127.0.0.1:8000/
 Write a mutation to generate a token
 ![img_1.png](img_1.png)
 
-pass the generated token in the subsequent mutation
+Pass the generated token in the subsequent mutation
 ![img_2.png](img_2.png)
