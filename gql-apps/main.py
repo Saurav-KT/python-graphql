@@ -39,4 +39,4 @@ async def get_jobs():
         return white_collor_job.all()
 
 
-app.mount("/graphql", GraphQLApp(schema=schema, on_get=make_playground_handler()))
+app.mount("/", GraphQLApp(schema=schema, on_get=make_playground_handler()))
