@@ -4,7 +4,7 @@ from app.db.database import async_session_maker
 from app.db.models import Employer
 from sqlmodel import select
 from sqlalchemy.orm import joinedload
-
+from app.utils import admin_user
 
 class AddEmployer(Mutation):
     class Arguments:
@@ -14,13 +14,14 @@ class AddEmployer(Mutation):
 
     employer = Field(lambda: EmployerObject)
 
+    @admin_user
     async def mutate(root, info, name, contact_email, industry):
         employer = Employer(name=name, contact_email=contact_email, industry=industry)
         async with async_session_maker() as session:
             session.add(employer)
             await session.commit()
             await session.refresh(employer)
-            return AddEmployer(employer=employer)
+            return AddEmployer(employer = employer)
 
 
 class UpdateEmployer(Mutation):
@@ -33,6 +34,7 @@ class UpdateEmployer(Mutation):
     employer = Field(lambda: EmployerObject)
     message = String()
 
+    @admin_user
     async def mutate(root, info, employer_id, name=None, contact_email=None, industry=None):
         async with async_session_maker() as session:
             employer = (
@@ -58,7 +60,7 @@ class DeleteEmployer(Mutation):
     success = Boolean()
     message = String()
 
-    @staticmethod
+    @admin_user
     async def mutate(root, info, employer_id):
         async with async_session_maker() as session:
             employer = (await session.exec(select(Employer).where(Employer.id == employer_id))).first()

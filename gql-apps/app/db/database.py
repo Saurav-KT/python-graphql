@@ -6,9 +6,9 @@ from app.db.models import Employer, Job, User, JobApplication
 from app.settings.config import DATABASE_URL
 from sqlmodel.ext.asyncio.session import AsyncSession
 from app.db.data import employers_data, jobs_data, users_data, application_data
-from app.utils import hash_password
 
-engine = create_async_engine(DATABASE_URL, echo=True)
+#echo parameter to controls the logging of SQL statements executed by the engine
+engine = create_async_engine(DATABASE_URL, echo=False)
 
 async_session_maker = sessionmaker(
     bind=engine,
@@ -23,6 +23,7 @@ async def create_schema():
 
 
 async def init_db():
+    from app.utils import hash_password
     await create_schema()
     # Create tables
     async with engine.begin() as conn:
