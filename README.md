@@ -4,13 +4,19 @@ Why Use GraphQL?
 GraphQL is a flexible and efficient API query language that offers several advantages over REST:
 
 ✅ Fetch Exactly What You Need – Clients request specific fields, reducing over-fetching and under-fetching of data.
+
 ✅ Single Endpoint – Unlike REST, which requires multiple endpoints, GraphQL consolidates all queries under one endpoint.
+
 ✅ Strongly Typed Schema – Ensures predictable responses and better API documentation.
+
 ✅ Better Performance – Reduces network requests by allowing batch fetching and nested queries.
+
 ✅ Real-Time Data – Supports subscriptions for real-time updates (e.g., WebSockets).
+
 ✅ Flexible for Frontend Developers – Clients control the data structure they receive, enabling faster iterations.
 
 Where is GraphQL Used?
+
 Facebook, GitHub, Shopify – For optimizing API performance.
 Microservices & BFF (Backend for Frontend) – Aggregates data from multiple services.
 Mobile & Web Apps – Reduces the number of API calls, improving performance
