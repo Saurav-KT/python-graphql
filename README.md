@@ -23,8 +23,11 @@ Mobile & Web Apps – Reduces the number of API calls, improving performance
 
 This repository demonstrates how to implement graphql using python
 In python we have Strawberry, Graphene, and Ariadne libraries for building GraphQL APIs, but they differ in their approaches, flexibility, and ease of use.
+
 Graphene: If you’re working with Django or SQLAlchemy and prefer class-based schemas.
+
 Strawberry: If you like modern Python features like type hints and work with FastAPI.
+
 Ariadne: If you prefer SDL-based schema definition and need Apollo Federation support.
 
 For this project we will use Graphene library
