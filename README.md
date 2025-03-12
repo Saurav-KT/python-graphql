@@ -31,6 +31,7 @@ Strawberry: If you like modern Python features like type hints and work with Fas
 Ariadne: If you prefer SDL-based schema definition and need Apollo Federation support.
 
 For this project we will use Graphene library
+
 Prerequisite
 *********************************
 We will use the docker image of PostgreSQL but before that, you should have ​Docker installed on your machine.
