@@ -45,3 +45,12 @@ We will use the docker image of PostgreSQL but before that, you should have ​D
 
 
 ![img.png](img.png)
+
+quick tips to troubleshoot
+
+docker ps
+
+docker exec -it [container_id] psql -U postgres -d postgres
+
+SELECT * FROM pg_settings WHERE name='port';
+
